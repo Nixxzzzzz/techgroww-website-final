@@ -44,10 +44,10 @@ export default function Navbar() {
       <div className="bg-gradient-to-r from-indigo-900/40 via-violet-900/30 to-cyan-900/40 border-b border-white/[0.05] py-1 px-4 text-center text-[11px] font-medium text-slate-300 hidden md:block">
         <span className="inline-flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
-          <span className="text-emerald-400 font-semibold">Live Q1 2026 Sprint Slots:</span>
-          <span>Only 3 Dedicated Engineering Squads available for immediate onboarding.</span>
+          <span className="text-emerald-400 font-semibold">Technical Roadmaps & Audits:</span>
+          <span>Now onboarding new software engineering projects.</span>
           <Link href="/contact" className="underline text-cyan-300 hover:text-white ml-1">
-            Claim Your Spot →
+            Schedule a Consultation →
           </Link>
         </span>
       </div>

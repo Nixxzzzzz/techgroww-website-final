@@ -45,7 +45,7 @@ const detailedServices = [
       "Native Device Sensor & BLE Hardware Integrations",
     ],
     techStack: ["Flutter", "Dart", "React Native", "Swift", "Kotlin", "Firebase", "RevenueCat"],
-    metrics: "4.8+ App Store Avg Rating | 100K+ MAU",
+    metrics: "Native 60 FPS | Sub-15MB Optimized Bundle",
   },
   {
     id: "ai",
@@ -65,7 +65,7 @@ const detailedServices = [
       "LLM Guardrails, Hallucination Checks & Cost Reductions",
     ],
     techStack: ["LangChain", "LlamaIndex", "Pinecone", "pgvector", "Python", "FastAPI", "OpenAI", "Claude 3.5"],
-    metrics: "60% Task Automation | 99.4% Retrieval Accuracy",
+    metrics: "Context-Aware RAG | Zero Hallucination Guardrails",
   },
   {
     id: "cloud",
@@ -105,7 +105,7 @@ const detailedServices = [
       "Brand Identity Guidelines & Vector Iconography",
     ],
     techStack: ["Figma", "Design Tokens", "Framer", "Prototyping", "Design Sprints", "Design Systems"],
-    metrics: "3.2x User Retention Lift | WCAG AA Certified",
+    metrics: "WCAG 2.1 AA Compliant | Pixel-Perfect Tokens",
   },
   {
     id: "growth",
@@ -125,7 +125,7 @@ const detailedServices = [
       "Real-time Inbound Lead Attribution Dashboards",
     ],
     techStack: ["Google Search Console", "PostHog", "Mixpanel", "Segment", "Schema.org", "Next.js"],
-    metrics: "+420% Organic Inbound Traffic in 6 Months",
+    metrics: "100% Core Web Vitals | Automated Indexing",
   },
 ];
 

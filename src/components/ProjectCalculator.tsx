@@ -6,7 +6,6 @@ import Link from "next/link";
 interface ServiceOption {
   id: string;
   name: string;
-  baseCost: number;
   baseWeeks: number;
   icon: string;
   description: string;
@@ -16,7 +15,6 @@ const serviceOptions: ServiceOption[] = [
   {
     id: "web",
     name: "Web Platform / SaaS",
-    baseCost: 3500,
     baseWeeks: 4,
     icon: "⚡",
     description: "Next.js App Router, SSR, High-conversion architecture & APIs",
@@ -24,31 +22,27 @@ const serviceOptions: ServiceOption[] = [
   {
     id: "mobile",
     name: "Mobile App (iOS & Android)",
-    baseCost: 4500,
-    baseWeeks: 6,
+    baseWeeks: 5,
     icon: "📱",
     description: "Cross-platform Flutter or React Native with native performance",
   },
   {
     id: "ai",
     name: "Enterprise AI & RAG",
-    baseCost: 5000,
-    baseWeeks: 5,
+    baseWeeks: 4,
     icon: "🧠",
     description: "Autonomous LLM agents, vector embeddings & custom automation",
   },
   {
     id: "design",
     name: "Bespoke UI/UX Design System",
-    baseCost: 2000,
-    baseWeeks: 3,
+    baseWeeks: 2,
     icon: "🎨",
     description: "Figma master components, user flows, responsive prototypes",
   },
   {
     id: "cloud",
-    name: "Cloud DevOps & Kubernetes",
-    baseCost: 3000,
+    name: "Cloud DevOps & SRE",
     baseWeeks: 3,
     icon: "☁️",
     description: "AWS/GCP infrastructure as code, CI/CD pipelines & zero downtime",
@@ -56,9 +50,9 @@ const serviceOptions: ServiceOption[] = [
 ];
 
 const tiers = [
-  { id: "mvp", name: "MVP Sprint", multiplier: 1, duration: "3-5 Weeks", tag: "Fast To Market" },
-  { id: "scale", name: "Scale & Growth", multiplier: 1.6, duration: "6-10 Weeks", tag: "Most Popular" },
-  { id: "enterprise", name: "Enterprise Custom", multiplier: 2.4, duration: "10-16 Weeks", tag: "High Security & Scale" },
+  { id: "mvp", name: "MVP Sprint", multiplier: 1, duration: "3-4 Weeks", tag: "Fast To Market", pod: "2 Senior Engineers + 1 Designer" },
+  { id: "scale", name: "Scale & Growth", multiplier: 1.5, duration: "6-8 Weeks", tag: "Standard Build", pod: "3 Full-Stack Engineers + Lead Architect" },
+  { id: "enterprise", name: "Enterprise Custom", multiplier: 2.2, duration: "10-14 Weeks", tag: "High Security & Compliance", pod: "Full Dedicated Pod + SRE Specialist" },
 ];
 
 export default function ProjectCalculator() {
@@ -74,20 +68,17 @@ export default function ProjectCalculator() {
 
   const currentTierObj = tiers.find((t) => t.id === selectedTier) || tiers[1];
 
-  const totalBaseCost = selectedServices.reduce((sum, sId) => {
+  const maxModuleWeeks = selectedServices.reduce((max, sId) => {
     const s = serviceOptions.find((opt) => opt.id === sId);
-    return sum + (s ? s.baseCost : 0);
-  }, 0);
+    return Math.max(max, s ? s.baseWeeks : 3);
+  }, 3);
 
   const totalWeeks = Math.ceil(
-    selectedServices.reduce((sum, sId) => {
-      const s = serviceOptions.find((opt) => opt.id === sId);
-      return Math.max(sum, s ? s.baseWeeks : 4);
-    }, 4) * (rushDelivery ? 0.75 : 1)
+    (maxModuleWeeks + (selectedServices.length > 1 ? (selectedServices.length - 1) * 1.5 : 0)) *
+      (rushDelivery ? 0.75 : 1)
   );
 
-  const estimatedMin = Math.round(totalBaseCost * currentTierObj.multiplier);
-  const estimatedMax = Math.round(estimatedMin * 1.35);
+  const totalSprints = Math.ceil(totalWeeks / 2);
 
   return (
     <div className="glass-card rounded-3xl p-6 sm:p-10 border border-white/[0.08] relative overflow-hidden shadow-2xl">
@@ -98,13 +89,13 @@ export default function ProjectCalculator() {
       <div className="relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 inline-block mb-3">
-            Instant Estimate Matrix
+            Scope & Sprint Matrix
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-            Interactive Project Scope & <span className="gradient-text">ROI Estimator</span>
+            Interactive Project Scope & <span className="gradient-text">Sprint Estimator</span>
           </h3>
           <p className="text-slate-400 text-sm mt-2">
-            Select your desired software capabilities and scale tier to receive an instant timeline & engineering allocation estimate.
+            Select your software requirements and delivery depth to project timeline, sprint cycles, and squad allocation.
           </p>
         </div>
 
@@ -171,6 +162,7 @@ export default function ProjectCalculator() {
                     <span className="text-xs text-cyan-400 font-mono">{tier.duration}</span>
                   </div>
                   <div className="text-base font-bold text-white mt-2">{tier.name}</div>
+                  <div className="text-[11px] text-slate-400 mt-1">{tier.pod}</div>
                 </button>
               );
             })}
@@ -180,8 +172,8 @@ export default function ProjectCalculator() {
         {/* Rush Delivery Toggle */}
         <div className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] mb-8">
           <div>
-            <div className="text-sm font-semibold text-white">Priority Rapid Delivery Sprint (Accelerate 25%)</div>
-            <div className="text-xs text-slate-400">Allocate 2 dedicated parallel pods to compress delivery timeline</div>
+            <div className="text-sm font-semibold text-white">Accelerated Delivery Sprint (Fast-Track)</div>
+            <div className="text-xs text-slate-400">Allocate parallel engineering tracks to compress time to production</div>
           </div>
           <button
             type="button"
@@ -203,26 +195,26 @@ export default function ProjectCalculator() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full md:w-auto">
             <div>
               <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-semibold">
-                Investment Range
+                Estimated Duration
               </span>
               <span className="text-2xl sm:text-3xl font-black gradient-text font-mono">
-                ${estimatedMin.toLocaleString()} - ${estimatedMax.toLocaleString()}
-              </span>
-            </div>
-            <div>
-              <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-semibold">
-                Est. Delivery
-              </span>
-              <span className="text-2xl sm:text-3xl font-black text-white font-mono">
                 ~{totalWeeks} Weeks
               </span>
             </div>
             <div>
               <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-semibold">
-                Squad Allocation
+                Sprint Iterations
+              </span>
+              <span className="text-2xl sm:text-3xl font-black text-white font-mono">
+                {totalSprints} Sprints
+              </span>
+            </div>
+            <div>
+              <span className="text-[11px] text-slate-400 uppercase tracking-wider block font-semibold">
+                Squad Composition
               </span>
               <span className="text-sm sm:text-base font-semibold text-emerald-400 mt-1 block">
-                {selectedServices.length + 1} Senior Engineers
+                {currentTierObj.pod}
               </span>
             </div>
           </div>
@@ -231,7 +223,7 @@ export default function ProjectCalculator() {
             href={`/contact?services=${selectedServices.join(",")}&tier=${selectedTier}`}
             className="btn-gradient w-full md:w-auto px-7 py-4 rounded-xl text-white font-bold text-sm tracking-wide text-center shrink-0 shadow-xl shadow-indigo-600/30 hover:scale-105 transition-transform"
           >
-            Lock In This Estimate & Book →
+            Request Tailored Proposal for this Scope →
           </Link>
         </div>
       </div>

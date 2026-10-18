@@ -19,7 +19,7 @@ const terminalLogs = [
   { text: "✔ Compiling Next.js 16 edge bundle [Turbopack] (0.8s)", color: "text-emerald-400" },
   { text: "✔ Initializing PostgreSQL connection pool (max 1000 conns)", color: "text-indigo-400" },
   { text: "✔ Mounting AI Autonomous Agent runtime on gRPC", color: "text-cyan-400" },
-  { text: "⚡ Latency: 12ms | Global CDN: Synced | Status: Healthy", color: "text-violet-300" },
+  { text: "⚡ Latency: 14ms | Global CDN: Synced | Status: Healthy", color: "text-violet-300" },
 ];
 
 export default function Hero() {
@@ -132,7 +132,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#121424] border border-indigo-500/30 shadow-lg shadow-indigo-500/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-semibold text-slate-200">
-                Next-Gen Digital Product & AI Engineering
+                Digital Product & Software Engineering Studio
               </span>
             </div>
 
@@ -143,7 +143,7 @@ export default function Hero() {
 
             {/* Subheading */}
             <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed mb-8">
-              Tech Groww is an elite engineering agency. We turn ambitious visions into high-converting web applications, native mobile apps, and autonomous AI systems built for planetary scale.
+              Tech Groww is an elite engineering agency. We turn ambitious concepts into high-converting web applications, native mobile apps, and autonomous AI systems built for planetary scale.
             </p>
 
             {/* CTAs */}
@@ -152,32 +152,34 @@ export default function Hero() {
                 href="/contact"
                 className="btn-gradient w-full sm:w-auto px-8 py-4 rounded-xl text-white font-bold text-sm tracking-wide text-center shadow-2xl shadow-indigo-600/40 hover:scale-105 transition-transform"
               >
-                Claim Your Free Tech Audit →
+                Schedule Technical Roadmap Call →
               </Link>
               <Link
                 href="/work"
                 className="glass w-full sm:w-auto px-7 py-4 rounded-xl text-slate-300 hover:text-white font-semibold text-sm border border-white/10 hover:border-indigo-400/50 transition-all text-center"
               >
-                Explore Live Case Studies
+                Explore Production Blueprints
               </Link>
             </div>
 
-            {/* Social Proof Badges */}
+            {/* Verified Engineering Standards Badges */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 border-t border-white/[0.08] text-xs text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="text-amber-400 text-sm">★★★★★</span>
-                <span className="font-semibold text-white">4.9/5.0</span>
-                <span>Client Rating</span>
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="font-semibold text-white">100% In-House</span>
+                <span>Senior Engineers</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold text-indigo-400 text-sm">150+</span>
-                <span>Production Deployments</span>
+                <span className="text-indigo-400 font-bold">✓</span>
+                <span className="font-mono font-bold text-indigo-400 text-sm">14-Day</span>
+                <span>Sprint Cycles</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-600 hidden sm:block" />
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold text-emerald-400 text-sm">99.98%</span>
-                <span>Guaranteed Uptime</span>
+                <span className="text-cyan-400 font-bold">✓</span>
+                <span className="font-mono font-bold text-cyan-400 text-sm">100%</span>
+                <span>Client IP Ownership</span>
               </div>
             </div>
           </div>
@@ -220,18 +222,18 @@ export default function Hero() {
                 <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/[0.08]">
                   <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                     <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-0.5">
-                      Avg Response Time
+                      Edge Latency
                     </div>
                     <div className="text-xl font-black font-mono text-emerald-400">
-                      14.2 ms
+                      &lt; 15 ms
                     </div>
                   </div>
                   <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                     <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-0.5">
-                      Client Growth Lift
+                      Architecture SLA
                     </div>
                     <div className="text-xl font-black font-mono text-cyan-400">
-                      +310% ARR
+                      99.9% Uptime
                     </div>
                   </div>
                 </div>
@@ -242,7 +244,7 @@ export default function Hero() {
                     href="/pricing"
                     className="text-xs text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-4 inline-flex items-center gap-1"
                   >
-                    Launch Interactive Scope Calculator →
+                    Launch Interactive Scope Estimator →
                   </Link>
                 </div>
               </div>

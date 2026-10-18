@@ -33,10 +33,10 @@ const services = [
 ];
 
 const budgetRanges = [
-  "$3,000 - $6,000",
-  "$6,000 - $12,000",
-  "$12,000 - $25,000",
-  "$25,000+",
+  "Custom Milestone Quote",
+  "Sprint-Based Retainer",
+  "Enterprise Scope",
+  "Flexible / To Be Determined",
 ];
 
 const timelines = [
@@ -50,15 +50,14 @@ function ContactFormInner() {
   const searchParams = useSearchParams();
   const preSelectedService = searchParams.get("service") || "";
   const preSelectedPackage = searchParams.get("package") || "";
-  const preSelectedTier = searchParams.get("tier") || "";
-  const preSelectedCaseStudy = searchParams.get("caseStudy") || "";
+  const preSelectedCaseStudy = searchParams.get("blueprint") || searchParams.get("caseStudy") || "";
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     service: "",
-    budget: "$6,000 - $12,000",
+    budget: "Custom Milestone Quote",
     timeline: "Within 2 - 4 Weeks",
     message: "",
   });
@@ -68,7 +67,7 @@ function ContactFormInner() {
     message: "",
   });
 
-  // Pre-fill fields if user came from pricing or services
+  // Pre-fill fields if user navigated from pricing, services, or blueprints
   useEffect(() => {
     if (preSelectedService) {
       setFormData((prev) => ({
@@ -79,13 +78,13 @@ function ContactFormInner() {
     if (preSelectedPackage) {
       setFormData((prev) => ({
         ...prev,
-        message: prev.message || `Interested in: ${preSelectedPackage}`,
+        message: prev.message || `Inquiry regarding: ${preSelectedPackage}`,
       }));
     }
     if (preSelectedCaseStudy) {
       setFormData((prev) => ({
         ...prev,
-        message: prev.message || `Inspired by Case Study: ${preSelectedCaseStudy}`,
+        message: prev.message || `Interested in Architecture Blueprint: ${preSelectedCaseStudy}`,
       }));
     }
   }, [preSelectedService, preSelectedPackage, preSelectedCaseStudy]);
@@ -121,14 +120,14 @@ function ContactFormInner() {
       setFormState({
         status: "success",
         message:
-          "🎉 We have received your project brief! Our senior technical team is reviewing your requirements and will reach out with a personalized roadmap within 24 hours.",
+          "🎉 We have received your project requirements! Our senior technical team is reviewing your brief and will reach out with an actionable architectural roadmap within 24 hours.",
       });
       setFormData({
         name: "",
         email: "",
         phone: "",
         service: "",
-        budget: "$6,000 - $12,000",
+        budget: "Custom Milestone Quote",
         timeline: "Within 2 - 4 Weeks",
         message: "",
       });
@@ -137,7 +136,7 @@ function ContactFormInner() {
       setFormState({
         status: "error",
         message:
-          "Encountered a network issue. Please email us directly at hello@techgroww.dev or chat via WhatsApp.",
+          "Encountered a network issue. Please email us directly at hello@techgroww.dev or contact us via LinkedIn.",
       });
     }
   };
@@ -158,7 +157,7 @@ function ContactFormInner() {
         </div>
         <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Active Response &lt; 2h</span>
+          <span>Active Response SLA</span>
         </div>
       </div>
 
@@ -168,7 +167,7 @@ function ContactFormInner() {
             ✓
           </div>
           <h4 className="text-2xl font-black text-white mb-3">
-            Blueprint Request Received!
+            Requirements Brief Received
           </h4>
           <p className="text-slate-300 text-sm leading-relaxed max-w-md mx-auto mb-8">
             {formState.message}
@@ -178,15 +177,15 @@ function ContactFormInner() {
               onClick={() => setFormState({ status: "idle", message: "" })}
               className="btn-gradient px-6 py-3 rounded-xl text-white text-xs font-bold"
             >
-              Submit Another Inquiry
+              Submit Additional Details
             </button>
             <a
-              href="https://wa.me/919876543210"
+              href="https://www.linkedin.com/company/102058460"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass px-6 py-3 rounded-xl text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-2 hover:bg-emerald-500/10"
+              className="glass px-6 py-3 rounded-xl text-blue-300 border border-blue-500/30 text-xs font-bold flex items-center gap-2 hover:bg-blue-500/10"
             >
-              <span>Instant WhatsApp Discussion →</span>
+              <span>Connect on LinkedIn →</span>
             </a>
           </div>
         </div>
@@ -203,7 +202,7 @@ function ContactFormInner() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="Alex Morgan"
+                placeholder="Your Full Name"
                 className={inputClass}
                 id="contact-name"
               />
@@ -218,7 +217,7 @@ function ContactFormInner() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="alex@company.com"
+                placeholder="name@company.com"
                 className={inputClass}
                 id="contact-email"
               />
@@ -228,21 +227,21 @@ function ContactFormInner() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                Phone / WhatsApp Number
+                Phone / WhatsApp Number (Optional)
               </label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+1 (555) 000-0000"
+                placeholder="Your contact number"
                 className={inputClass}
                 id="contact-phone"
               />
             </div>
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                Primary Core Service Needed *
+                Primary Capability Needed *
               </label>
               <select
                 name="service"
@@ -267,7 +266,7 @@ function ContactFormInner() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                Expected Budget Range
+                Engagement Model
               </label>
               <select
                 name="budget"
@@ -303,7 +302,7 @@ function ContactFormInner() {
 
           <div>
             <label className="block text-xs font-medium text-slate-300 mb-1.5">
-              Project Scope & Objectives *
+              Project Brief & Objectives *
             </label>
             <textarea
               name="message"
@@ -311,7 +310,7 @@ function ContactFormInner() {
               onChange={handleChange}
               required
               rows={4}
-              placeholder="Tell us about your project, current bottlenecks, and target milestones..."
+              placeholder="Describe your product vision, technical challenges, and desired launch timeline..."
               className={`${inputClass} resize-none`}
               id="contact-message"
             />
@@ -340,9 +339,9 @@ function ContactFormInner() {
           </button>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
-            <span>🔒 Strict Mutual NDA Protection</span>
-            <span>⚡ Direct Google Sheets & Slack Integration</span>
-            <span>⏱️ 24h Guaranteed Response SLA</span>
+            <span>🔒 Mutual NDA Protection</span>
+            <span>⚡ Direct Google Sheets Storage</span>
+            <span>⏱️ 24h Response SLA</span>
           </div>
         </form>
       )}
@@ -360,7 +359,7 @@ export default function ContactForm() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Side: Direct Contact Details & SLA */}
+          {/* Left Side: Direct Channels & SLA */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold mb-6">
               <span>💬</span>
@@ -372,37 +371,37 @@ export default function ContactForm() {
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-              No generic sales pitches. You will speak directly with our senior software architects to scope your technical challenges and architect a high-growth solution.
+              Speak directly with our senior software architects to review your technical challenges and architect a high-growth solution.
             </p>
 
             {/* Quick Touchpoint Cards */}
             <div className="space-y-3 mb-8">
               {[
                 {
-                  icon: "💬",
-                  label: "Instant WhatsApp Chat",
-                  val: "+91 98765 43210 (Online Now)",
-                  href: "https://wa.me/919876543210?text=Hi%20Tech%20Groww%2C%20I%27d%20like%20to%20discuss%20a%20project",
-                  color: "border-emerald-500/30 text-emerald-300 bg-emerald-500/5 hover:border-emerald-500/60",
-                },
-                {
-                  icon: "📧",
-                  label: "Direct Inquiries Email",
-                  val: "hello@techgroww.dev",
-                  href: "mailto:hello@techgroww.dev",
-                  color: "border-indigo-500/30 text-indigo-300 bg-indigo-500/5 hover:border-indigo-500/60",
-                },
-                {
                   icon: "💼",
-                  label: "LinkedIn Verified Profile",
+                  label: "Official LinkedIn Presence",
                   val: "Tech Groww on LinkedIn",
                   href: "https://www.linkedin.com/company/102058460",
                   color: "border-blue-500/30 text-blue-300 bg-blue-500/5 hover:border-blue-500/60",
                 },
                 {
-                  icon: "📍",
-                  label: "Headquarters & Global Hub",
-                  val: "Noida Cyber Corridor, NCR India",
+                  icon: "📧",
+                  label: "Inquiries & Proposals",
+                  val: "hello@techgroww.dev",
+                  href: "mailto:hello@techgroww.dev",
+                  color: "border-indigo-500/30 text-indigo-300 bg-indigo-500/5 hover:border-indigo-500/60",
+                },
+                {
+                  icon: "📑",
+                  label: "Contracting & IP Security",
+                  val: "Standard Mutual NDA on Request",
+                  href: "mailto:hello@techgroww.dev?subject=Request%20Mutual%20NDA",
+                  color: "border-emerald-500/30 text-emerald-300 bg-emerald-500/5 hover:border-emerald-500/60",
+                },
+                {
+                  icon: "🏢",
+                  label: "Studio Location",
+                  val: "Tech Groww Engineering Center",
                   href: "#",
                   color: "border-white/[0.08] text-slate-300 bg-white/[0.02]",
                 },
@@ -425,16 +424,16 @@ export default function ContactForm() {
               ))}
             </div>
 
-            {/* Timezone Overlap Badge */}
+            {/* Timezone Overlap Matrix */}
             <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
               <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">
-                Active Timezone Overlap:
+                Active Client Overlap Zones:
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs text-slate-300">
                 <div>🇺🇸 US Eastern (EST): 4h overlap</div>
                 <div>🇬🇧 UK / Europe (GMT): 6h overlap</div>
                 <div>🇦🇪 Dubai (GST): 7h overlap</div>
-                <div>🇮🇳 India (IST): Full Day</div>
+                <div>🇮🇳 India (IST): Core Studio</div>
               </div>
             </div>
           </div>

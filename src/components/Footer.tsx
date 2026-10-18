@@ -8,8 +8,8 @@ const footerNavigation = {
   pages: [
     { label: "Home", href: "/" },
     { label: "Engineering Services", href: "/services" },
-    { label: "Client Case Studies", href: "/work" },
-    { label: "Pricing & Estimator", href: "/pricing" },
+    { label: "Architecture Blueprints", href: "/work" },
+    { label: "Pricing & Engagement", href: "/pricing" },
     { label: "About Tech Groww", href: "/about" },
     { label: "Schedule Consultation", href: "/contact" },
   ],
@@ -18,21 +18,21 @@ const footerNavigation = {
     { label: "Mobile App Ecosystems", href: "/services#mobile" },
     { label: "Enterprise AI & Autonomous Agents", href: "/services#ai" },
     { label: "Cloud Infra & SRE DevOps", href: "/services#cloud" },
-    { label: "High-Fidelity UI/UX Systems", href: "/services#design" },
+    { label: "Bespoke UI/UX Systems", href: "/services#design" },
     { label: "Growth Engineering & Search", href: "/services#growth" },
   ],
   company: [
-    { label: "About Our Craft", href: "/about#story" },
-    { label: "Engineering Manifesto", href: "/about#manifesto" },
-    { label: "Proven ROI Metrics", href: "/work" },
-    { label: "Transparent Pricing", href: "/pricing" },
-    { label: "Security & Compliance", href: "/services" },
+    { label: "Engineering Philosophy", href: "/about" },
+    { label: "Pillars & Commitments", href: "/#about-pillars" },
+    { label: "Technical Benchmarks", href: "/#benchmarks" },
+    { label: "Engagement Models", href: "/pricing" },
+    { label: "Security & OWASP Standards", href: "/services" },
   ],
   connect: [
-    { label: "LinkedIn Company Page", href: "https://www.linkedin.com/company/102058460", external: true },
-    { label: "Instant WhatsApp Chat", href: "https://wa.me/919876543210", external: true },
-    { label: "Direct Email: hello@techgroww.dev", href: "mailto:hello@techgroww.dev", external: false },
-    { label: "Direct Call: +91 98765 43210", href: "tel:+919876543210", external: false },
+    { label: "LinkedIn Official Page", href: "https://www.linkedin.com/company/102058460", external: true },
+    { label: "Email: hello@techgroww.dev", href: "mailto:hello@techgroww.dev", external: false },
+    { label: "Schedule Technical Consultation", href: "/contact", external: false },
+    { label: "Interactive Scope Estimator", href: "/pricing", external: false },
   ],
 };
 
@@ -53,18 +53,18 @@ export default function Footer() {
       {/* Dynamic ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-indigo-600/[0.07] blur-[120px] pointer-events-none" />
 
-      {/* High-Impact Pre-Footer Banner */}
+      {/* Pre-Footer Banner */}
       <div className="relative border-b border-white/[0.06] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
-            Empowering Modern Ventures Globally
+            Software Engineering & Digital Growth
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight max-w-3xl mx-auto leading-tight mb-6">
             Ready to Build an <span className="gradient-text">Unfair Competitive Advantage?</span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-            Stop losing ground to legacy solutions. Partner with Tech Groww to design, build, and deploy software that converts traffic into sustainable enterprise value.
+            Partner with Tech Groww to design, build, and deploy software that converts traffic into sustainable enterprise value.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -77,7 +77,7 @@ export default function Footer() {
               href="/pricing"
               className="glass w-full sm:w-auto px-7 py-4 rounded-xl text-slate-300 hover:text-white font-semibold text-sm border border-white/10 hover:border-indigo-400/40 transition-colors"
             >
-              Calculate Estimated Cost
+              Estimate Sprint Timeline
             </Link>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
-              Elite digital growth and full-stack software development agency. We turn visionary concepts into high-speed web platforms, mobile ecosystems, and autonomous AI systems.
+              Digital growth and full-stack software development agency. We engineer modern web platforms, mobile ecosystems, and autonomous AI systems.
             </p>
             
             {/* Tech Badges */}
@@ -141,7 +141,7 @@ export default function Footer() {
           {/* Solutions & Core Capabilities */}
           <div>
             <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Solutions
+              Capabilities
             </h3>
             <ul className="space-y-2.5">
               {footerNavigation.services.map((item) => (
@@ -165,14 +165,23 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerNavigation.connect.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 block"
-                  >
-                    {item.label}
-                  </a>
+                  {item.href.startsWith("/") ? (
+                    <Link
+                      href={item.href}
+                      className="text-slate-400 hover:text-white text-sm transition-colors duration-200 block"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="text-slate-400 hover:text-white text-sm transition-colors duration-200 block"
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -182,10 +191,10 @@ export default function Footer() {
                 Headquarters
               </div>
               <p className="text-xs text-slate-300 leading-snug">
-                Noida Cyber Hub, Uttar Pradesh, India
+                Tech Groww Digital Studio
               </p>
               <div className="text-[10px] text-slate-500 mt-1">
-                Serving Clients in USA, UK, UAE & Global
+                Serving Clients Globally
               </div>
             </div>
           </div>
@@ -193,13 +202,13 @@ export default function Footer() {
 
         {/* Bottom Credits & Status Indicator */}
         <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {currentYear} Tech Groww Technologies. All rights reserved.</p>
+          <p>© {currentYear} Tech Groww. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Privacy Protocol</span>
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Terms of Engagement</span>
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              <span>Production CDN: 100% Operational</span>
+              <span>Production Edge: 100% Operational</span>
             </div>
           </div>
         </div>

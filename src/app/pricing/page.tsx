@@ -10,66 +10,66 @@ import Link from "next/link";
 const pricingTiers = [
   {
     name: "MVP Velocity Sprint",
-    tagline: "For early-stage startups needing a battle-tested product in market fast.",
-    price: "$4,500",
-    billing: "One-time starting investment",
+    tagline: "For early-stage ventures needing an institutional-grade product in market with zero technical debt.",
+    price: "Milestone-Based",
+    billing: "Fixed quote scoped to product requirements",
     duration: "3 - 5 Weeks Delivery",
-    badge: "Startup Favorite",
+    badge: "Startup Model",
     popular: false,
     features: [
-      "Next.js 16 Web App or Flutter Mobile App",
+      "Next.js 16 Web Platform or Flutter Mobile App",
       "Bespoke Figma UI/UX Design System",
       "Stripe / Payment Gateway Integration",
-      "PostgreSQL / Supabase Database Architecture",
-      "Auth0 / Supabase / Clerk Authentication",
-      "CI/CD Pipeline with Automated Staging URL",
-      "30-Day Post-Launch Bug Warranty",
+      "PostgreSQL Database Architecture & Indexing",
+      "Secure OAuth 2.0 & Session Authentication",
+      "Automated CI/CD Staging Preview Environments",
+      "90-Day Post-Launch Bug Warranty",
       "100% Intellectual Property Ownership",
     ],
-    cta: "Launch MVP Sprint →",
+    cta: "Request MVP Scope & Quote →",
     accent: "border-white/[0.1]",
   },
   {
     name: "Dedicated Engineering Squad",
-    tagline: "Your outsourced elite product engineering team. Continuous high-velocity shipping.",
-    price: "$8,500",
-    billing: "Per month / flexible 14-day sprints",
-    duration: "Ongoing Sprint Velocity",
-    badge: "Most Popular",
+    tagline: "An elite full-stack squad integrated directly into your workflow for continuous high-velocity delivery.",
+    price: "Sprint Retainer",
+    billing: "Billed per 14-day sprint • Zero lock-in",
+    duration: "Bi-Weekly Sprint Cadence",
+    badge: "Recommended",
     popular: true,
     features: [
-      "1x Senior Tech Lead & Solution Architect",
-      "2x Senior Full-Stack Engineers",
+      "1x Senior Solutions Architect & Tech Lead",
+      "2x Senior Full-Stack Software Engineers",
       "1x Senior UI/UX Product Designer",
-      "Bi-Weekly Production Sprints & Demos",
-      "Dedicated Slack / Discord Channel Integration",
-      "Real-time Jira / Linear Project Tracking",
-      "Autonomous AI & LLM Workflow Integrations",
-      "AWS / GCP Multi-Environment DevOps",
-      "90-Day Production SLA & 24/7 Hotfix Support",
+      "Bi-Weekly Production Demos & Sprint Planning",
+      "Direct Slack / Discord Channel Integration",
+      "Real-Time Pull Request & Git Visibility",
+      "Cloud Infrastructure & DevOps CI/CD Support",
+      "Automated Test Coverage & Performance Audits",
+      "24/7 Critical Incident Monitoring SLA",
     ],
-    cta: "Deploy Your Dedicated Squad →",
+    cta: "Deploy Dedicated Squad →",
     accent: "border-indigo-500/60 shadow-2xl shadow-indigo-600/25",
   },
   {
     name: "Enterprise Architecture & Scale",
-    tagline: "For high-compliance companies requiring planetary scale and custom AI engines.",
-    price: "Custom",
-    billing: "Milestone or dedicated retainer",
-    duration: "Tailored Engineering Scope",
+    tagline: "For scaling companies requiring high-concurrency systems, planetary cloud infrastructure, and custom AI.",
+    price: "Custom Enterprise",
+    billing: "Tailored scope & SLA agreement",
+    duration: "Tailored Architecture Scope",
     badge: "Enterprise SLA",
     popular: false,
     features: [
-      "Custom Autonomous Multi-Agent AI Swarms",
+      "Custom Autonomous AI & LLM Vector Swarms",
       "Multi-Region Kubernetes (EKS / GKE) IaaC",
-      "SOC2, HIPAA & GDPR Architectural Compliance",
+      "SOC2, HIPAA & GDPR Security Hardening",
       "High-Frequency Distributed WebSockets",
-      "Database Sharding & Read-Replica Clusters",
+      "Database Sharding & Read-Replica Topology",
       "15-Minute Critical Incident Response SLA",
       "Full Security Penetration Testing & Audit",
-      "Fractional CTO & Executive Architecture Review",
+      "Fractional CTO & Strategic Architecture Advisory",
     ],
-    cta: "Request Enterprise Consultation →",
+    cta: "Inquire for Enterprise Terms →",
     accent: "border-white/[0.1]",
   },
 ];
@@ -77,23 +77,23 @@ const pricingTiers = [
 const faqs = [
   {
     q: "Who owns the code and intellectual property?",
-    a: "You do. 100%. From the moment code is written, full copyright, repository access, and intellectual property belong exclusively to your company. We sign comprehensive NDAs and IP assignment contracts before starting.",
+    a: "You do. 100%. From the moment code is written, full copyright, repository access, and intellectual property belong exclusively to your company. We execute mutual non-disclosure and intellectual property assignment agreements prior to kickoff.",
   },
   {
-    q: "How do payments and milestones work?",
-    a: "For fixed projects, we split invoices into milestones: 30% upfront kickoff, 30% after design & architecture sign-off, 20% on staging delivery, and 20% on final production deployment. For dedicated squads, billing is bi-weekly with zero long-term lock-in.",
+    q: "How are project scopes and payments structured?",
+    a: "For fixed builds, invoices are linked to verified milestones: kickoff, architecture & UI/UX sign-off, staging deployment, and production launch. For dedicated squads, engagements are structured around 14-day sprint cycles with zero long-term lock-in.",
   },
   {
-    q: "What happens if we need changes or bug fixes after launch?",
-    a: "Every fixed-scope project includes our comprehensive 30 to 90-day bug-free warranty. If any regression occurs, we patch it immediately at zero cost. We also offer monthly maintenance retainers for continuous feature evolution.",
+    q: "What support is provided after launch?",
+    a: "Every fixed-scope project includes our comprehensive 90-day production warranty. If any defects or regressions emerge, our senior team remediates them immediately. We also provide ongoing maintenance retainers for continuous feature evolution.",
   },
   {
-    q: "Can you take over or refactor an existing codebase?",
-    a: "Yes. We frequently conduct technical architecture audits on troubled or slow codebases, optimize database queries, refactor frontend performance, and modernize legacy infrastructure into modern Next.js/React stacks.",
+    q: "Can you audit or modernize an existing codebase?",
+    a: "Yes. We frequently conduct deep technical architecture audits on existing codebases, diagnose database bottlenecks, refactor frontend web performance, and modernize legacy infrastructure into modern Next.js/React stacks.",
   },
   {
-    q: "How do we communicate during the build?",
-    a: "You get a dedicated Slack, Discord, or WhatsApp channel with your engineering squad. We hold asynchronous daily standups and weekly live video demos so you always have 100% visibility.",
+    q: "How does our team collaborate with your engineers?",
+    a: "You are integrated directly into a private Slack, Discord, or Teams channel with your assigned senior squad. We hold asynchronous daily check-ins and weekly working demos, with full visibility into GitHub repositories.",
   },
 ];
 
@@ -110,13 +110,13 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold mb-6">
             <span>💎</span>
-            <span>Transparent, High-ROI Engineering</span>
+            <span>Transparent Engagement Models</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-            Predictable Pricing. <span className="gradient-text">Zero Surprises.</span>
+            Predictable Engagement. <span className="gradient-text">Zero Surprises.</span>
           </h1>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed">
-            Institutional-grade software development with transparent scopes and milestone-backed accountability.
+            Institutional-grade software development with transparent scopes, milestone accountability, and 100% intellectual property ownership.
           </p>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-24">
-          {pricingTiers.map((tier, i) => (
+          {pricingTiers.map((tier) => (
             <div
               key={tier.name}
               className={`glass-card rounded-3xl p-6 sm:p-8 border ${tier.accent} flex flex-col justify-between relative overflow-hidden ${
@@ -133,7 +133,7 @@ export default function PricingPage() {
             >
               {tier.popular && (
                 <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[10px] font-mono font-bold tracking-widest uppercase px-4 py-1 rounded-bl-xl shadow-lg">
-                  POPULAR CHOICE
+                  RECOMMENDED MODEL
                 </div>
               )}
 
@@ -149,16 +149,16 @@ export default function PricingPage() {
                 <p className="text-slate-400 text-xs leading-relaxed mb-6">{tier.tagline}</p>
 
                 <div className="mb-8 pb-6 border-b border-white/[0.08]">
-                  <div className="text-4xl font-black text-white font-mono tracking-tight">
+                  <div className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
                     {tier.price}
                   </div>
-                  <div className="text-xs text-slate-500 font-medium mt-1">{tier.billing}</div>
+                  <div className="text-xs text-slate-400 font-medium mt-1">{tier.billing}</div>
                 </div>
 
                 {/* Features List */}
                 <div className="space-y-3 mb-8">
                   <div className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-2">
-                    What&apos;s Included:
+                    Scope Highlights:
                   </div>
                   {tier.features.map((feat, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
@@ -183,7 +183,7 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* Embedded Interactive Scope & ROI Calculator */}
+        {/* Embedded Interactive Scope & Sprint Calculator */}
         <div className="mb-24">
           <ProjectCalculator />
         </div>
@@ -192,7 +192,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 inline-block mb-3">
-              Common Inquiries
+              Common Questions
             </span>
             <h2 className="text-3xl font-black text-white tracking-tight">
               Frequently Asked <span className="gradient-text">Questions</span>

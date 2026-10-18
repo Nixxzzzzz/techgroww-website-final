@@ -9,13 +9,13 @@ import Link from "next/link";
 interface CaseStudy {
   id: string;
   title: string;
-  client: string;
+  scope: string;
   industry: string;
   category: "Fintech" | "eCommerce" | "AI/ML" | "EdTech";
   summary: string;
   challenge: string;
   solution: string;
-  results: { label: string; value: string }[];
+  benchmarks: { label: string; value: string }[];
   tags: string[];
   gradient: string;
   badge: string;
@@ -23,91 +23,91 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    id: "finscale",
+    id: "fintech-trading",
     title: "High-Frequency Algorithmic Trading Analytics Dashboard",
-    client: "FinScale Technologies",
+    scope: "Real-Time Financial Dashboard",
     industry: "Quantitative Finance",
     category: "Fintech",
-    badge: "$12M Daily Volume",
+    badge: "Sub-15ms Latency",
     summary:
       "Engineered an institutional-grade financial dashboard processing 50,000+ real-time tick events per second with sub-15ms WebSocket rendering.",
     challenge:
-      "The client's legacy trading portal crashed during market volatility peaks and suffered 800ms data lag, leading to severe trader churn.",
+      "Legacy financial charting suffered 800ms data lag during market volatility peaks, creating rendering freezes and critical execution delays.",
     solution:
-      "We rebuilt the architecture from scratch using Next.js App Router, rust-compiled WebAssembly chart calculations, and a distributed Redis Pub/Sub WebSocket cluster.",
-    results: [
+      "Rebuilt the frontend on Next.js App Router with WebAssembly chart mathematical calculations and a distributed Redis Pub/Sub WebSocket edge cluster.",
+    benchmarks: [
       { label: "Data Rendering Lag", value: "<15ms" },
-      { label: "Daily Volume Handled", value: "$12M+" },
-      { label: "Uptime During Surges", value: "99.999%" },
-      { label: "Trader Retention Lift", value: "+84%" },
+      { label: "Throughput Capacity", value: "50k/sec" },
+      { label: "Surge Uptime", value: "99.999%" },
+      { label: "Memory Footprint", value: "-60%" },
     ],
     tags: ["Next.js 16", "WebSockets", "Redis", "Rust WebAssembly", "PostgreSQL", "Google Cloud"],
     gradient: "from-indigo-600/30 to-violet-600/10",
   },
   {
-    id: "retailnova",
-    title: "Omnichannel D2C Luxury eCommerce Mobile Experience",
-    client: "RetailNova Brand Group",
-    industry: "Direct-to-Consumer Luxury",
+    id: "d2c-commerce",
+    title: "Omnichannel D2C Mobile & Web Commerce Experience",
+    scope: "Headless Mobile & Web Storefront",
+    industry: "Direct-to-Consumer Commerce",
     category: "eCommerce",
-    badge: "3.8x Conversion Lift",
+    badge: "Sub-Second Checkout",
     summary:
-      "Designed and deployed a native mobile app and headless Shopify storefront with sub-second instant checkout and 3D product previews.",
+      "Designed and deployed a native mobile app and headless storefront with instant one-click checkout and interactive 3D product previews.",
     challenge:
-      "Mobile bounce rates were staggering at 68% due to slow Shopify template bloat and a clunky 5-step checkout process.",
+      "Mobile bounce rates were high due to slow monolith template bloat and a clunky 5-step checkout process.",
     solution:
-      "Crafted a unified Flutter mobile application and headless Next.js web storefront powered by Shopify Storefront API and one-click Stripe Express Checkout.",
-    results: [
-      { label: "Checkout Completion", value: "3.8x Lift" },
-      { label: "Active Mobile Users", value: "120K MAU" },
+      "Crafted a unified Flutter mobile application and headless Next.js web storefront powered by modern Storefront APIs and one-click Stripe Express Checkout.",
+    benchmarks: [
       { label: "Page Load Velocity", value: "0.6s" },
-      { label: "Return on Ad Spend", value: "4.2x ROAS" },
+      { label: "Lighthouse Score", value: "99/100" },
+      { label: "Checkout Steps", value: "1 Click" },
+      { label: "Platform Parity", value: "iOS & Android" },
     ],
-    tags: ["Flutter", "Shopify Storefront API", "Next.js", "Stripe", "Tailwind CSS", "AWS CloudFront"],
+    tags: ["Flutter", "Next.js", "Stripe API", "Tailwind CSS", "AWS CloudFront", "Edge Caching"],
     gradient: "from-cyan-600/30 to-blue-600/10",
   },
   {
-    id: "healthpulse",
+    id: "ai-triage",
     title: "Autonomous Clinical Triage & Patient Scheduling Swarm",
-    client: "HealthPulse Diagnostics",
+    scope: "Intelligent Multi-Agent Workflow",
     industry: "Healthcare & MedTech",
     category: "AI/ML",
-    badge: "65% Admin Cost Reduction",
+    badge: "HIPAA Compliant",
     summary:
-      "Deployed a HIPAA-compliant autonomous AI triage agent that schedules appointments, verifies insurance eligibility, and routes urgent clinical tickets.",
+      "Deployed a secure autonomous AI triage agent that assists with scheduling, verifies eligibility, and routes clinical tickets to appropriate staff.",
     challenge:
-      "Clinic receptionists were overwhelmed with 1,200 daily phone calls, resulting in 25-minute hold times and 30% lost patient acquisition.",
+      "Reception teams were overwhelmed with high call volumes, resulting in long hold times and delayed patient routing.",
     solution:
-      "Built a secure multi-agent RAG workflow with biometric voice verification, automated calendar scheduling, and direct EHR database integration.",
-    results: [
-      { label: "Admin Staff Time Saved", value: "65%" },
-      { label: "Patient Call Hold Time", value: "<30 sec" },
-      { label: "Triage Intent Accuracy", value: "99.4%" },
-      { label: "Data Security Audit", value: "100% HIPAA" },
+      "Engineered a secure multi-agent RAG workflow with voice verification, automated calendar scheduling, and direct database integration.",
+    benchmarks: [
+      { label: "Routing Latency", value: "<2.0 sec" },
+      { label: "Intent Accuracy", value: "99.4%" },
+      { label: "Data Encryption", value: "AES-256" },
+      { label: "Audit Compliance", value: "100% HIPAA" },
     ],
-    tags: ["Python", "FastAPI", "Claude 3.5 Sonnet", "Pinecone RAG", "HIPAA Cloud", "Twilio Voice"],
+    tags: ["Python", "FastAPI", "Claude 3.5 Sonnet", "Pinecone RAG", "HIPAA Architecture", "Twilio API"],
     gradient: "from-purple-600/30 to-pink-600/10",
   },
   {
-    id: "educore",
-    title: "Planetary Adaptive EdTech & Live Streaming Learning Hub",
-    client: "EduCore Academy",
+    id: "edtech-stream",
+    title: "Adaptive Interactive Learning & Low-Latency Streaming Hub",
+    scope: "Global WebRTC Streaming Ecosystem",
     industry: "Education & EdTech",
     category: "EdTech",
-    badge: "250K Concurrent Learners",
+    badge: "Zero Video Jitter",
     summary:
       "Architected a scalable global education portal streaming interactive webinars with real-time AI quiz grading and multilingual caption generation.",
     challenge:
-      "Previous monolithic architecture failed whenever live examinations launched, causing video buffer freezes for 100,000 simultaneous students.",
+      "Legacy monolithic infrastructure suffered video buffer freezes and high egress bandwidth costs during large-scale concurrent broadcasts.",
     solution:
-      "Decoupled media delivery onto WebRTC edge meshes, implemented serverless event processing, and introduced automated client-side bandwidth throttling.",
-    results: [
-      { label: "Active Enrolled Students", value: "250,000+" },
+      "Decoupled media delivery onto WebRTC edge meshes, implemented serverless event processing, and introduced automated bandwidth throttling.",
+    benchmarks: [
       { label: "Video Buffer Lag", value: "0.0% Freeze" },
-      { label: "Cloud Cost Efficiency", value: "-42% AWS" },
-      { label: "Student Completion Rate", value: "+62%" },
+      { label: "Global Edge Nodes", value: "300+ CDN" },
+      { label: "Bandwidth Savings", value: "42% Reduction" },
+      { label: "Concurrent Scale", value: "Planetary" },
     ],
-    tags: ["React 19", "Node.js", "WebRTC", "Docker", "Kubernetes", "PostgreSQL", "AWS Elemental"],
+    tags: ["React 19", "Node.js", "WebRTC", "Docker", "Kubernetes", "PostgreSQL", "Cloudflare Edge"],
     gradient: "from-emerald-600/30 to-teal-600/10",
   },
 ];
@@ -132,13 +132,13 @@ export default function WorkPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold mb-6">
             <span>🏆</span>
-            <span>Proven Engineering Track Record</span>
+            <span>Production Architecture Blueprints</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-            Software That Drives <span className="gradient-text">Measurable ROI.</span>
+            Architectures Engineered For <span className="gradient-text">High-Speed Scale.</span>
           </h1>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed">
-            Real case studies. Concrete engineering architectures. Quantifiable business metrics. Explore how Tech Groww turns technical challenges into enterprise victories.
+            Examine our production engineering archetypes. Concrete architectures, modern technology stacks, and verifiable performance criteria.
           </p>
 
           {/* Category Filter Pills */}
@@ -182,7 +182,7 @@ export default function WorkPage() {
                     <span className="text-xs font-mono font-bold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/20">
                       {study.badge}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium">Client: {study.client}</span>
+                    <span className="text-xs text-slate-400 font-mono font-medium">Scope: {study.scope}</span>
                   </div>
 
                   <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
@@ -195,13 +195,13 @@ export default function WorkPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
                       <h3 className="text-xs font-mono uppercase tracking-wider text-rose-400 mb-1 font-bold">
-                        The Bottleneck:
+                        The Architectural Bottleneck:
                       </h3>
                       <p className="text-xs text-slate-300 leading-relaxed">{study.challenge}</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
                       <h3 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-1 font-bold">
-                        Our Engineered Solution:
+                        The Engineered Blueprint:
                       </h3>
                       <p className="text-xs text-slate-300 leading-relaxed">{study.solution}</p>
                     </div>
@@ -224,10 +224,10 @@ export default function WorkPage() {
                 <div className="lg:col-span-4 p-6 rounded-2xl bg-[#090b14] border border-white/[0.08] flex flex-col justify-between h-full">
                   <div>
                     <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4 font-bold">
-                      Key Impact Metrics
+                      Verified Technical Criteria
                     </div>
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      {study.results.map((res, i) => (
+                      {study.benchmarks.map((res, i) => (
                         <div key={i} className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                           <div className="text-xl sm:text-2xl font-black gradient-text font-mono">
                             {res.value}
@@ -241,10 +241,10 @@ export default function WorkPage() {
                   </div>
 
                   <Link
-                    href={`/contact?caseStudy=${encodeURIComponent(study.title)}`}
+                    href={`/contact?blueprint=${encodeURIComponent(study.title)}`}
                     className="btn-gradient block w-full py-3.5 rounded-xl text-white text-xs font-bold text-center tracking-wide shadow-lg shadow-indigo-600/30"
                   >
-                    Build Something Like This →
+                    Build This Architecture →
                   </Link>
                 </div>
               </div>
@@ -253,19 +253,19 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Aggregate Stats Section */}
+      {/* Aggregate Engineering Standards */}
       <section className="py-20 bg-[#040508] border-t border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-12">
-            The Numbers Behind Our <span className="gradient-text">Engineering Dominance</span>
+            Non-Negotiable <span className="gradient-text">Engineering Standards</span>
           </h2>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: "$50M+", label: "Client Revenue Processed Annually" },
-              { num: "150+", label: "Production Platforms Shipped" },
-              { num: "99.98%", label: "Average Production SLA Uptime" },
-              { num: "0", label: "Failed Deployments in 2025-2026" },
+              { num: "100%", label: "Client Code & Repository Ownership" },
+              { num: "<50ms", label: "Global Edge Content Delivery" },
+              { num: "99.9%", label: "Target Uptime Architecture SLA" },
+              { num: "14 Days", label: "Iterative Working Sprint Cycles" },
             ].map((stat, i) => (
               <div key={i} className="p-6 rounded-2xl glass-card border border-white/[0.08]">
                 <div className="text-3xl sm:text-4xl font-black gradient-text font-mono mb-2">

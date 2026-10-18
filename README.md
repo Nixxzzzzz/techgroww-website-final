@@ -1,90 +1,91 @@
-# Tech Groww Website
+# Tech Groww — Enterprise Digital Engineering & AI Agency
 
-A premium, production-ready landing page for Tech Groww — a digital growth & IT solutions agency.
+A premier, multi-page, production-ready digital growth and software engineering platform built for **Tech Groww**.
 
-## Tech Stack
-- **Next.js 16** (App Router)
-- **Tailwind CSS v4**
-- **TypeScript**
-- **Google Sheets** (Lead form backend)
+## 🚀 Live Multi-Page Architecture
 
-## Quick Start
+1. **Home (`/`)**:
+   - Interactive Particle Network Canvas & Mesh Background
+   - Simulated Cloud Deployment Terminal (Live Telemetry)
+   - Infinite Cyber Ticker Bar
+   - Bento Grid (AI-Native Engineering, Edge Architecture, Design Tokens)
+   - **Interactive Project Scope & ROI Estimator Widget**
+   - Core Services Teaser & 4-Step Agile Delivery Timeline
+   - Proven Metrics & Verified Client Testimonials
+   - High-Converting Lead Generation Engine (Google Sheets Backend)
 
-```bash
-npm install
-npm run dev
-```
+2. **Services (`/services`)**:
+   - Deep-dive architectural breakdown across 6 core practices:
+     1. Next-Gen Web Platforms & SaaS Engineering
+     2. Cross-Platform Mobile App Ecosystems (Flutter & React Native)
+     3. Enterprise AI & Autonomous Agent Systems (LLMs, RAG, Swarms)
+     4. Cloud Infrastructure, DevOps & SRE (Kubernetes, AWS, GCP)
+     5. Bespoke UI/UX Design Systems & Product Strategy
+     6. Growth Engineering & Algorithmic SEO
+   - Interactive Technical Arsenal Explorer (Frontend, Backend, Mobile, Cloud, AI, Databases)
+   - Flexible Engagement Models (Dedicated Engineering Pods, Turnkey Projects, Fractional CTO)
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. **Case Studies & Portfolio (`/work`)**:
+   - Filterable portfolio (All, Fintech, eCommerce, AI/ML, EdTech)
+   - Detailed Problem-Solution-Result breakdowns:
+     - *FinScale Global*: High-frequency quantitative trading dashboard ($12M daily volume, <15ms lag)
+     - *RetailNova D2C*: Omnichannel luxury mobile app & headless storefront (3.8x checkout conversion)
+     - *HealthPulse AI*: Autonomous HIPAA-compliant clinical triage swarm (65% admin time saved)
+     - *EduCore Academy*: Global WebRTC live streaming portal (250,000 active learners)
 
-## Project Structure
+4. **Pricing & ROI Estimator (`/pricing`)**:
+   - Transparent, milestone-backed investment tiers:
+     - *MVP Velocity Sprint* ($4,500)
+     - *Dedicated Engineering Squad* ($8,500/mo)
+     - *Enterprise Architecture & Scale* (Custom)
+   - Embedded Interactive Scope Calculator
+   - Interactive Buyer FAQ Accordion
 
-```
-src/
-├── app/
-│   ├── globals.css       # Global styles, design tokens, animations
-│   ├── layout.tsx        # Root layout with SEO metadata
-│   └── page.tsx          # Main page assembly
-├── components/
-│   ├── Navbar.tsx        # Sticky navbar with glassmorphism
-│   ├── Hero.tsx          # Hero with particle canvas animation
-│   ├── Services.tsx      # Services with glassmorphism cards
-│   ├── TrustAuthority.tsx # Why Us, testimonials, metrics
-│   ├── ContactForm.tsx   # Lead form (Google Sheets integrated)
-│   ├── ContactSidebar.tsx # Sticky contact icons sidebar
-│   └── Footer.tsx        # Footer with CTA banner
-public/
-└── logo.jpg              # Company logo (add your file here)
-google-apps-script.js     # Google Sheets backend script
-```
+5. **About Tech Groww (`/about`)**:
+   - Engineering Manifesto: "Code That Converts, Architecture That Scales"
+   - Official Brand Logo Showcase & Heritage (Founded 2020, NCR India Hub)
+   - Core Principles: Craft obsession, speed as a feature, radical transparency, enterprise resilience
+   - Growth Milestones (2020 - 2026)
+   - Global Presence (Serving US, UK, Europe, UAE & APAC)
 
-## Google Sheets Integration
-
-### Step 1: Create Google Sheet
-1. Create a new Google Sheet
-2. Name the first tab **"Leads"**
-3. Headers are auto-created on first submission
-
-### Step 2: Deploy Apps Script
-1. Go to [Google Apps Script](https://script.google.com/)
-2. Create a new project
-3. Copy the contents of `google-apps-script.js`
-4. Replace `YOUR_GOOGLE_SHEET_ID_HERE` with your Sheet ID
-5. Deploy as Web App → Execute as: Me → Access: Anyone
-6. Copy the Web App URL
-
-### Step 3: Connect the Form
-Open `src/components/ContactForm.tsx` and replace:
-```typescript
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_URL_HERE/exec";
-```
-With your actual deployed Web App URL.
-
-## Adding Your Logo
-Place your `logo.jpg` file in the `/public` directory. It's already referenced in the Navbar and Footer components.
-
-## Customization
-- **Colors**: Edit CSS variables in `src/app/globals.css`
-- **Contact Info**: Update email, phone, WhatsApp in `ContactForm.tsx`, `ContactSidebar.tsx`, and `Footer.tsx`
-- **Content**: Edit services, metrics, and testimonials in their respective component files
-
-## Deployment
-```bash
-npm run build
-npm start
-```
-
-Or deploy to **Vercel** for free:
-```bash
-npx vercel --prod
-```
-
-## SEO
-- Title and meta descriptions configured in `layout.tsx`
-- Semantic HTML with proper H1, H2, H3 hierarchy
-- OpenGraph and Twitter card metadata
-- Viewport and theme color configured
+6. **Contact & Consultation (`/contact`)**:
+   - Schedule Technical Roadmap Session
+   - URL Parameter pre-population from pricing & services calculators
+   - Budget range and target launch timeline selectors
+   - Direct Touchpoints: Instant WhatsApp, Email, Phone, Verified LinkedIn
+   - Active Timezone Overlap Matrix (US EST, UK GMT, Dubai GST, India IST)
+   - Automatic Lead capture directly into Google Sheets
 
 ---
 
-Built with ❤️ by Tech Groww
+## 🛠️ Tech Stack & Zero-Bloat Engineering
+- **Framework**: Next.js 16 (App Router with Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 + Cyber-Luxe Design System
+- **Database / Lead Storage**: Google Sheets via Google Apps Script Web App
+- **Static Prerendering**: 100% of routes statically optimized at build time
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000)
+
+## 📦 Production Build Verification
+
+```bash
+npm run build
+npm run start
+```
+
+---
+
+Built with pride by **Tech Groww**

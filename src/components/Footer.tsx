@@ -4,43 +4,41 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const footerLinks = {
-  Services: [
-    "Web Development",
-    "Mobile App Development",
-    "UI/UX Design",
-    "Cloud & DevOps",
-    "Digital Marketing",
-    "AI & Automation",
+const footerNavigation = {
+  pages: [
+    { label: "Home", href: "/" },
+    { label: "Engineering Services", href: "/services" },
+    { label: "Client Case Studies", href: "/work" },
+    { label: "Pricing & Estimator", href: "/pricing" },
+    { label: "About Tech Groww", href: "/about" },
+    { label: "Schedule Consultation", href: "/contact" },
   ],
-  Company: [
-    { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Results", href: "#metrics" },
-    { label: "Contact", href: "#contact" },
+  services: [
+    { label: "Next-Gen Web Platforms", href: "/services#web" },
+    { label: "Mobile App Ecosystems", href: "/services#mobile" },
+    { label: "Enterprise AI & Autonomous Agents", href: "/services#ai" },
+    { label: "Cloud Infra & SRE DevOps", href: "/services#cloud" },
+    { label: "High-Fidelity UI/UX Systems", href: "/services#design" },
+    { label: "Growth Engineering & Search", href: "/services#growth" },
   ],
-  Connect: [
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/102058460",
-    },
-    {
-      label: "WhatsApp",
-      href: "https://wa.me/919876543210",
-    },
-    {
-      label: "Email",
-      href: "mailto:hello@techgroww.dev",
-    },
-    {
-      label: "Phone",
-      href: "tel:+919876543210",
-    },
+  company: [
+    { label: "About Our Craft", href: "/about#story" },
+    { label: "Engineering Manifesto", href: "/about#manifesto" },
+    { label: "Proven ROI Metrics", href: "/work" },
+    { label: "Transparent Pricing", href: "/pricing" },
+    { label: "Security & Compliance", href: "/services" },
+  ],
+  connect: [
+    { label: "LinkedIn Company Page", href: "https://www.linkedin.com/company/102058460", external: true },
+    { label: "Instant WhatsApp Chat", href: "https://wa.me/919876543210", external: true },
+    { label: "Direct Email: hello@techgroww.dev", href: "mailto:hello@techgroww.dev", external: false },
+    { label: "Direct Call: +91 98765 43210", href: "tel:+919876543210", external: false },
   ],
 };
 
-const techStack = [
-  "React", "Next.js", "Flutter", "Node.js", "AWS", "GCP", "Docker", "Figma",
+const techBadges = [
+  "Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Flutter",
+  "Node.js", "Python", "FastAPI", "AWS", "Google Cloud", "Docker", "PostgreSQL"
 ];
 
 export default function Footer() {
@@ -50,125 +48,128 @@ export default function Footer() {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  const scrollTo = (href: string) => {
-    const target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <footer className="relative overflow-hidden bg-[#060609]">
-      {/* Top border */}
-      <div className="h-px bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
+    <footer className="relative overflow-hidden bg-[#040508] border-t border-white/[0.06]">
+      {/* Dynamic ambient background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-indigo-600/[0.07] blur-[120px] pointer-events-none" />
 
-      {/* CTA Banner */}
-      <div className="relative py-16 overflow-hidden">
-        <div
-          className="absolute inset-0 animate-gradient"
-          style={{
-            background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06), rgba(6,182,212,0.04))",
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-            Ready to Transform Your{" "}
-            <span className="gradient-text">Digital Presence?</span>
+      {/* High-Impact Pre-Footer Banner */}
+      <div className="relative border-b border-white/[0.06] py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-6">
+            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+            Empowering Modern Ventures Globally
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight max-w-3xl mx-auto leading-tight mb-6">
+            Ready to Build an <span className="gradient-text">Unfair Competitive Advantage?</span>
           </h2>
-          <p className="text-slate-400 text-lg mb-8">
-            Join 50+ businesses that trusted Tech Groww to power their digital growth.
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Stop losing ground to legacy solutions. Partner with Tech Groww to design, build, and deploy software that converts traffic into sustainable enterprise value.
           </p>
-          <button
-            onClick={() => scrollTo("#contact")}
-            className="btn-primary px-10 py-4 rounded-2xl text-white font-bold text-lg glow-hover"
-          >
-            Get a Free Strategy Call →
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="btn-gradient w-full sm:w-auto px-8 py-4 rounded-xl text-white font-bold text-sm tracking-wide shadow-xl shadow-indigo-600/30"
+            >
+              Start Your Project Today →
+            </Link>
+            <Link
+              href="/pricing"
+              className="glass w-full sm:w-auto px-7 py-4 rounded-xl text-slate-300 hover:text-white font-semibold text-sm border border-white/10 hover:border-indigo-400/40 transition-colors"
+            >
+              Calculate Estimated Cost
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-indigo-500/30 group-hover:border-indigo-500/60 transition-all duration-300">
+      {/* Multi-Column Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+          {/* Brand Info (2 cols on lg) */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-3 mb-5 group inline-block">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-indigo-500/30 group-hover:border-indigo-400 transition-all bg-[#0d0f1a]">
                 <Image
                   src="/logo.jpg"
                   alt="Tech Groww Logo"
                   fill
+                  sizes="40px"
                   className="object-contain p-1"
                 />
               </div>
-              <span className="text-xl font-black gradient-text">Tech Groww</span>
+              <span className="text-xl font-black tracking-tight text-white">
+                TECH <span className="gradient-text">GROWW</span>
+              </span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed mb-5">
-              Your end-to-end technology growth partner. We build digital
-              solutions that scale businesses from startup to enterprise.
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
+              Elite digital growth and full-stack software development agency. We turn visionary concepts into high-speed web platforms, mobile ecosystems, and autonomous AI systems.
             </p>
-            {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-2">
-              {techStack.map((tech) => (
+            
+            {/* Tech Badges */}
+            <div className="flex flex-wrap gap-1.5 max-w-md">
+              {techBadges.map((badge) => (
                 <span
-                  key={tech}
-                  className="text-xs px-2.5 py-1 rounded-full border border-indigo-500/20 text-slate-500 bg-indigo-500/5"
+                  key={badge}
+                  className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.03] text-slate-400 border border-white/[0.06]"
                 >
-                  {tech}
+                  {badge}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Services Column */}
+          {/* Quick Pages Navigation */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Services
-            </h4>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Explore Pages
+            </h3>
             <ul className="space-y-2.5">
-              {footerLinks.Services.map((service) => (
-                <li key={service}>
-                  <button
-                    onClick={() => scrollTo("#services")}
-                    className="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 text-left"
+              {footerNavigation.pages.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-400 hover:text-indigo-300 text-sm transition-colors duration-200 block"
                   >
-                    {service}
-                  </button>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company Column */}
+          {/* Solutions & Core Capabilities */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Company
-            </h4>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Solutions
+            </h3>
             <ul className="space-y-2.5">
-              {footerLinks.Company.map((item) => (
+              {footerNavigation.services.map((item) => (
                 <li key={item.label}>
-                  <button
-                    onClick={() => scrollTo(item.href)}
-                    className="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 text-left"
+                  <Link
+                    href={item.href}
+                    className="text-slate-400 hover:text-cyan-300 text-sm transition-colors duration-200 block"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Connect Column */}
+          {/* Connect & Direct Touchpoints */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Connect
-            </h4>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Direct Contact
+            </h3>
             <ul className="space-y-2.5">
-              {footerLinks.Connect.map((item) => (
+              {footerNavigation.connect.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200"
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 block"
                   >
                     {item.label}
                   </a>
@@ -176,38 +177,29 @@ export default function Footer() {
               ))}
             </ul>
 
-            {/* Contact Details */}
-            <div className="mt-6 space-y-2">
-              <a
-                href="mailto:hello@techgroww.dev"
-                className="block text-xs text-slate-600 hover:text-slate-400 transition-colors"
-              >
-                📧 hello@techgroww.dev
-              </a>
-              <a
-                href="tel:+919876543210"
-                className="block text-xs text-slate-600 hover:text-slate-400 transition-colors"
-              >
-                📞 +91 98765 43210
-              </a>
-              <p className="text-xs text-slate-600">
-                📍 Noida, Uttar Pradesh, India
+            <div className="mt-6 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+              <div className="text-[11px] text-slate-400 mb-1 font-semibold uppercase tracking-wider">
+                Headquarters
+              </div>
+              <p className="text-xs text-slate-300 leading-snug">
+                Noida Cyber Hub, Uttar Pradesh, India
               </p>
+              <div className="text-[10px] text-slate-500 mt-1">
+                Serving Clients in USA, UK, UAE & Global
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs text-center sm:text-left">
-            © {currentYear} Tech Groww. All rights reserved. Built with ❤️ in India.
-          </p>
+        {/* Bottom Credits & Status Indicator */}
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {currentYear} Tech Groww Technologies. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span className="text-slate-600 text-xs">Privacy Policy</span>
-            <span className="text-slate-600 text-xs">Terms of Service</span>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-xs text-emerald-400">All systems operational</span>
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Privacy Protocol</span>
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Terms of Engagement</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span>Production CDN: 100% Operational</span>
             </div>
           </div>
         </div>
